@@ -1,0 +1,17 @@
+sudo: required
+
+language: generic
+
+services:
+ - docker
+
+before_install:
+ - echo "start"
+ - docker build -t rustic/docker-react -f Dockerfile.dev .
+
+script:
+ - docker run -e CI=true rustic/docker-react npm run test -- --converage
+
+after_success:
+ - echo "test success"
+ 
