@@ -7,11 +7,10 @@ services:
 
 before_install:
  - echo "start"
- - docker build -t rustic/docker-react -f Dockerfile.dev .
+ - docker build -t rusticboy7/docker-react-app -f Dockerfile.dev .
 
 script:
- - docker run -e CI=true rustic/docker-react npm run test -- --converage
+ - docker run -e CI=true rusticboy7/docker-react-app npm run test -- --converage
 
 after_success:
- - echo "test success"
- 
+ - echo "test success "
